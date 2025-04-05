@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: TOBEPROVIDED
+    username: TOBEPROVIDED
+    password: TOBEPROVIDED
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+logging:
+  level:
+    com.francefootball.niceequipefootballapi: "info"

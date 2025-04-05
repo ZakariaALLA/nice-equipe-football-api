@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: "nice-equipe-football-api"
+server:
+  servlet:
+    context-path: "/nice-foot-api"
