@@ -1,8 +1,6 @@
 package com.francefootball.niceequipefootballapi.metier.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.francefootball.niceequipefootballapi.metier.enums.PositionJoueur;
-import com.francefootball.niceequipefootballapi.persistence.model.Equipe;
 import com.francefootball.niceequipefootballapi.persistence.model.Joueur;
 
 import java.util.List;

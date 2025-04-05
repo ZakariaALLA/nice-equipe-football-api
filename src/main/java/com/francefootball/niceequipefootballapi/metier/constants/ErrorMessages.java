@@ -6,5 +6,6 @@ public class ErrorMessages {
     public static final String JOUEUR_A_EQUIPE = "Le joueur que vous essayez d'ajouter existe déjà dans une autre équipe";
     public static final String EQUIPE_EXISTE = "L'équipe avec cet ID existe déjà";
     public static final String AUCUN_JOUEUR_TROUVE = "Aucun Joueur trouvé";
+    public static final String ROLE_INVALIDE = "Le role est invalide";
 
 }
