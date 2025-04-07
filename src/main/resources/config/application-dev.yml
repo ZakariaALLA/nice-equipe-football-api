@@ -19,3 +19,6 @@ security:
   jwt:
     secret-key: "K9ZC2Zwo7dnXbOs3gCKfEi6JoSevkWxzugAhByuZhPmbcrOUKJxOWuih1XD6FEg"
     expiration-time: 3600000
+data:
+  initialize:
+    enabled: "true"

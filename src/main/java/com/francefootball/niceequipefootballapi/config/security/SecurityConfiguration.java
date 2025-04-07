@@ -32,14 +32,14 @@ public class SecurityConfiguration {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/auth/**",
+                                PATH_AUTH + "/**",
                                 "/swagger-ui/**",
                                 "/v3/api-docs/**",
                                 "/swagger-resources/**"
                         ).permitAll()
                         .requestMatchers(HttpMethod.GET, PATH_EQUIPE + "/**").permitAll()
                         .requestMatchers(HttpMethod.GET, PATH_POSITION + "/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, PATH_JOUEUR + "/**").hasAuthority(EnumRoles.ROLE_USER.name())
+                        .requestMatchers(HttpMethod.GET, PATH_JOUEUR + "/**").hasAnyAuthority(new String[]{EnumRoles.ROLE_USER.name(), EnumRoles.ROLE_ADMIN.name()})
                         .requestMatchers(HttpMethod.POST, PATH_EQUIPE + "/**").hasAuthority(EnumRoles.ROLE_ADMIN.name())
                         .anyRequest().denyAll()
                 )
