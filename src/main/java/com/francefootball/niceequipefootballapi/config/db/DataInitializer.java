@@ -10,7 +10,8 @@ import com.francefootball.niceequipefootballapi.persistence.repository.JoueurRep
 import com.francefootball.niceequipefootballapi.persistence.repository.RoleRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -21,10 +22,8 @@ import java.util.List;
 @Component
 @Transactional
 @AllArgsConstructor
-@ConditionalOnProperty(
-        name = "data.initialize.enabled",
-        havingValue = "true"
-)
+@ConditionalOnExpression("${data.initialize.enabled:false}")
+@Slf4j
 public class DataInitializer {
 
     private final RoleRepository roleRepository;
@@ -33,7 +32,9 @@ public class DataInitializer {
 
     @EventListener(ApplicationReadyEvent.class)
     public void initializeRoles() {
+        log.info("Initializing roles...");
         if (roleRepository.count() == 0) {
+            log.info("Creating roles...");
             Role user = new Role();
             user.setName(EnumRoles.ROLE_USER);
             Role admin = new Role();
